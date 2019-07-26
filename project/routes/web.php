@@ -12,8 +12,9 @@
 */
 
 Route::get('/', function () {
-    return redirect(route('alumni.index'));;
+    return redirect(route('animal.index'));;
 });
 
 
 Route::resource('alumni', 'AlumniController');
+Route::resource('animal', 'AnimalController');
