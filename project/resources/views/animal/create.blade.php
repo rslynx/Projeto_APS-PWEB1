@@ -40,16 +40,26 @@
         <input type="text" id="idade" name="idade" />
       </div>
       <div class="form-group">
-        <label for="cor">Porte:</label>
-        <input type="text" id="porteFisico" name="porteFisico" />
+        <label for="porteFisico">Porte Fisico</label>
+        <select class="form-control" id="exampleFormControlSelect1" id="porteFisico" name="porteFisico">
+          <option>peq</option>
+          <option>med</option>
+          <option>gra</option>
+        </select>
       </div>
       <div class="form-group">
-        <label for="cor">Comportamento:</label>
-        <input type="text" id="comportamento" name="comportamento" />
+        <label for="comportamento">Comportamento</label>
+        <select class="form-control" id="comportamento" name="comportamento">
+          <option>docil</option>
+          <option>agressivo</option>
+        </select>
       </div>
       <div class="form-group">
-        <label for="cor">Vacinado:</label>
-        <input type="text" id="vacinado" name="vacinado" />
+        <label for="vacinado">Vacinado</label>
+        <select class="form-control" id="vacinado" name="vacinado">
+          <option>sim</option>
+          <option>nao</option>
+        </select>
       </div>
       <button type="submit" class="btn btn-primary">Cadastrar Animal</button>
     </form>

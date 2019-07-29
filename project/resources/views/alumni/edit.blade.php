@@ -17,11 +17,10 @@
       </ul>
     </div>
     @endif
-    <form method="post" action="">
+    <form method="post" action="{{action('App\Http\Controllers\AnimalController@update', $animal->id)}}">
       <div class="form-group">
         @csrf
-        @method('PATCH')
-        <label for="name">Name:</label>
+          <label for="name">Name:</label>
         <input type="text" class="form-control" id="name" name="name" value="" />
       </div>
       <div class="form-group">

@@ -23,7 +23,9 @@
       <td>Porte</td>
       <td>Comportamento</td>
       <td>Vacinado</td>
-      <td colspan="2">Action</td>
+      <td>Editar</td>
+      <td>Deletar</td>
+
     </tr>
   </thead>
   <tbody>
@@ -38,8 +40,7 @@
       <td>{{$animal->porteFisico}}</td>
       <td>{{$animal->comportamento}}</td>
       <td>{{$animal->vacinado}}</td>
-      <td><a href="" class="btn btn-primary" role="button">Edit</a></td>
-      <td><a href="" class="btn btn-primary" role="button">Delete</a></td>
+      <td><a href="{{ route('animal.edit',$animal->id)}}" class="btn btn-primary" role="button">Edit</a></td>
       <td>
         <form action="{{ route('animal.destroy',$animal->id)}}" method="POST">
           @csrf

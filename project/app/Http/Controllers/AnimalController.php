@@ -71,7 +71,8 @@ class AnimalController extends Controller
      */
     public function edit(Animal $animal)
     {
-        //
+        $animal = Animal::findOrFail($animal->id);
+        return view('animal.edit', compact('animal'));
     }
 
     /**
@@ -83,7 +84,18 @@ class AnimalController extends Controller
      */
     public function update(Request $request, Animal $animal)
     {
-        //
+        $validatedData = $request->validate([
+            'nome' => 'max:255',
+            'especie' => 'max:255',
+            'raca' => 'max:255',
+            'corDaPelagem' => 'max:255',
+            'idade' => 'max:255',
+            'porteFisico' => 'max:255',
+            'comportamento' => 'max:10'    ,
+            'vacinado' => 'max:255'
+        ]);
+        Animal::whereId($animal->id)->update($validatedData);
+        return redirect(route('animal.index'))->with('success', 'Alumnus is successfully saved');
     }
 
     /**
@@ -95,8 +107,7 @@ class AnimalController extends Controller
     public function destroy(Animal $animal)
     {
         $animal = Animal::findOrFail($animal->id);
-            $animal->delete();
-    
-            return redirect(route('animal.index'))->with('success', 'Animal is successfully deleted');
+        $animal->delete();
+        return redirect(route('animal.index'))->with('success', 'Animal is successfully deleted');
     }
 }
