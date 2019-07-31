@@ -42,7 +42,7 @@
       <td>{{$animal->vacinado}}</td>
       <td><a href="{{ route('animal.edit',$animal->id)}}" class="btn btn-primary" role="button">Edit</a></td>
       <td>
-        <form action="{{ route('animal.destroy',$animal->id)}}" method="POST">
+        <form class="delete" action="{{ route('animal.destroy',$animal->id)}}" method="POST">
           @csrf
           @method('DELETE')
           <button class="btn btn-danger" type="submit">Delete</button>
@@ -53,4 +53,14 @@
   </tbody>
 </table>
 <a href="{{ route('animal.create') }}" class="btn btn-primary" role="button">Adicionar Animal</a>
+@endsection
+
+@section('script')
+<script>
+  $(function() {
+    $('.delete').on('submit', function() {
+      return confirm('Are you sure?');
+    });
+  });
+</script>
 @endsection
