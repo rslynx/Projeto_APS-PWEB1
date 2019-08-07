@@ -40,5 +40,7 @@
     @endforeach
   </tbody>
 </table>
+@csrf
+@method('CREATE')
 <a href="" class="btn btn-primary" role="button">Add alumnus</a>
 @endsection

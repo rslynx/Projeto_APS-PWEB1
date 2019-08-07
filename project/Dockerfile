@@ -7,9 +7,9 @@ COPY composer.lock composer.json /var/www/
 WORKDIR /var/www
 
 # Install dependencies
-RUN  apt-get update &&  apt-get install -y \
-  build-essential \
-  mysql-client \
+RUN apt-get update &&  apt-get install -y \
+  #build-essential \
+  mariadb-client \
   locales \
   zip \
   vim \
