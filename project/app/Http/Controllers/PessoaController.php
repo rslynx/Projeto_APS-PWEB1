@@ -24,13 +24,10 @@ class PessoaController extends Controller
     {
         $validatedData = $request->validate([
             'nome' => 'required|max:255',
-            'especie' => 'required|max:255',
-            'raca' => 'required|max:255',
-            'corDaPelagem' => 'required|max:255',
-            'idade' => 'required|max:255',
-            'porteFisico' => 'required|max:255',
-            'comportamento' => 'required|max:10',
-            'vacinado' => 'required|max:255'
+            'endereco' => 'required|max:255',
+            'telefone' => 'required|max:255',
+            'cep' => 'required|max:255',
+            'cpf' => 'required|max:255',            
         ]);
         // dd($validatedData);
         Pessoa::create($validatedData);
@@ -39,7 +36,7 @@ class PessoaController extends Controller
 
     public function show(Pessoa $pessoa)
     {
-        //
+        return view('pessoa.show', compact('pessoa'));
     }
 
 

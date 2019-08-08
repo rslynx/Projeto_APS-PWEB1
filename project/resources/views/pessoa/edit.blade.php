@@ -1,11 +1,11 @@
 @extends('alumni.layout')
 
-@section('title', 'Edit Animal')
+@section('title', 'Edit Pessoa')
 
 @section('content')
 <div class="card">
   <div class="card-header">
-    Edit Animal
+    Edit Pessoa
   </div>
   <div class="card-body">
     @if ($errors->any())
@@ -17,40 +17,28 @@
       </ul>
     </div>
     @endif
-    <form method="post" action="{{ route('animal.update', $animal->id)}}">
+    <form method="post" action="{{ route('pessoa.update', $pessoa->id)}}">
       <div class="form-group">
         @csrf
         @method('PATCH')
         <label for="nome">Nome:</label>
-        <input type="text" class="form-control" id="nome" name="nome" value="{{$animal->nome}}" />
+        <input type="text" class="form-control" id="nome" name="nome" />
       </div>
       <div class="form-group">
-        <label for="especie">Especie:</label>
-        <input type="text" class="form-control" id="especie" name="especie" value="{{$animal->especie}}" />
+        <label for="especie">Endereco:</label>
+        <input type="text" class="form-control" id="endereco" name="endereco" />
       </div>
       <div class="form-group">
-        <label for="raca">Raça:</label>
-        <input type="text" id="raca" name="raca" value="{{$animal->raca}}" />
+        <label for="raca">Telefone:</label>
+        <input type="text" id="telefone" name="telefone" />
       </div>
       <div class="form-group">
-        <label for="cor">Cor:</label>
-        <input type="text" id="cor" name="corDaPelagem" value="{{$animal->corDaPelagem}}" />
+        <label for="cor">Cep:</label>
+        <input type="text" id="cep" name="cep" />
       </div>
       <div class="form-group">
-        <label for="cor">Idade:</label>
-        <input type="text" id="idade" name="idade" value="{{$animal->idade}}" />
-      </div>
-      <div class="form-group">
-        <label for="cor">Porte:</label>
-        <input type="text" id="porteFisico" name="porteFisico" value="{{$animal->porteFisico}}"/>
-      </div>
-      <div class="form-group">
-        <label for="cor">Comportamento:</label>
-        <input type="text" id="comportamento" name="comportamento" value="{{$animal->comportamento}}" />
-      </div>
-      <div class="form-group">
-        <label for="cor">Vacinado:</label>
-        <input type="text" id="vacinado" name="vacinado" value="{{$animal->vacinado}}" />
+        <label for="cor">Cpf:</label>
+        <input type="text" id="cpf" name="cpf" />
       </div>
       <button type="submit" class="btn btn-primary">Cadastrar Animal</button>
     </form>

@@ -16,4 +16,10 @@ class Animal extends Model
         'comportamento',
         'vacinado'
     ];
+
+
+    public function pessoa()
+    {
+        return $this->belongsTo('App\Pessoa');
+    }
 }
