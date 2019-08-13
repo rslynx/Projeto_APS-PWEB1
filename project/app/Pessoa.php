@@ -17,4 +17,9 @@ class Pessoa extends Model
     {
         return $this->hasMany('App\Animal');
     }
+
+    public function consultas()
+    {
+        return $this->hasMany('App\Consulta');
+    }
 }

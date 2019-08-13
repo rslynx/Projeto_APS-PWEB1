@@ -31,7 +31,7 @@ class PessoaController extends Controller
         ]);
         // dd($validatedData);
         Pessoa::create($validatedData);
-        return redirect(route('pessoa.index'))->with('success', 'pessoa is successfully saved');
+        return redirect(route('pessoa.index'))->with('success', 'Pessoa is successfully saved');
     }
 
     public function show(Pessoa $pessoa)
@@ -51,22 +51,19 @@ class PessoaController extends Controller
     {
         $validatedData = $request->validate([
             'nome' => 'max:255',
-            'especie' => 'max:255',
-            'raca' => 'max:255',
-            'corDaPelagem' => 'max:255',
-            'idade' => 'max:255',
-            'porteFisico' => 'max:255',
-            'comportamento' => 'max:10'    ,
-            'vacinado' => 'max:255'
+            'endereco' => 'max:255',
+            'telefone' => 'max:255',
+            'cep' => 'max:255',
+            'cpf' => 'max:255'
         ]);
         Pessoa::whereId($pessoa->id)->update($validatedData);
-        return redirect(route('pessoa.index'))->with('success', 'Alumnus is successfully saved');
+        return redirect(route('pessoa.index'))->with('success', 'Pessoa is successfully saved');
     }
 
     public function destroy(Pessoa $pessoa)
     {
         $pessoa = Pessoa::findOrFail($pessoa->id);
         $pessoa->delete();
-        return redirect(route('pessoa.index'))->with('success', 'pessoa is successfully deleted');
+        return redirect(route('pessoa.index'))->with('success', 'Pessoa is successfully deleted');
     }
 }
