@@ -11,12 +11,20 @@
 |
 */
 
+
+Auth::routes();
+
 Route::get('/', function () {
-    return redirect(route('animal.index'));;
+    return redirect(route('home'));;
 });
 
 
 Route::resource('alumni', 'AlumniController');
-Route::resource('animal', 'AnimalController');
+//Route::resource('animal', 'AnimalController');
+Route::resource('pessoa.animal', 'AnimalController');
+Route::resource('pessoa.consulta', 'ConsultaController');
 Route::resource('pessoa', 'PessoaController');
 
+
+
+Route::get('/home', 'HomeController@index')->name('home');

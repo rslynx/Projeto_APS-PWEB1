@@ -1,5 +1,4 @@
-@extends('pessoa.layout')
-
+@extends('layouts.app')
 @section('title', 'Cadastrar Pessoa')
 
 @section('content')
@@ -17,7 +16,7 @@
       </ul>
     </div>
     @endif
-    <form method="post" action="{{ route('animal.store') }}">
+    <form method="post" action="{{ route('pessoa.store') }}">
       <div class="form-group">
         @csrf
         <label for="nome">Nome:</label>
@@ -39,7 +38,7 @@
         <label for="cor">Cpf:</label>
         <input type="text" id="cpf" name="cpf" />
       </div>
-      <button type="submit" class="btn btn-primary">Cadastrar Animal</button>
+      <button type="submit" class="btn btn-primary">Cadastrar Pessoa</button>
     </form>
   </div>
 </div>

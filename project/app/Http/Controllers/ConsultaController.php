@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Animal;
+use App\Consulta;
 use App\Pessoa;
 use Illuminate\Http\Request;
 use PessoaSeeder;
 
-class AnimalController extends Controller
+class ConsultaController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,8 +16,8 @@ class AnimalController extends Controller
      */
     public function index()
     {
-        $animal = Animal::all();
-        return view('animal.index', compact('animais'));
+        $consulta = Consulta::all();
+        return view('consulta.index', compact('consulta'));
     }
 
     /**
@@ -28,7 +28,7 @@ class AnimalController extends Controller
     public function create($id)
     {   
         $pessoa = Pessoa::findOrFail($id);
-        return view('animal.create' , compact('pessoa'));
+        return view('consulta.create' , compact('pessoa'));
         
     }
 
@@ -43,33 +43,21 @@ class AnimalController extends Controller
         //dd($request);
         $pessoa = Pessoa::findOrFail($id);
         $validatedData = $request->validate([
-            'nome' => 'required|max:255',
-            'especie' => 'required|max:255',
-            'raca' => 'required|max:255',
-            'corDaPelagem' => 'required|max:255',
-            'idade' => 'required|max:255',
-            'porteFisico' => 'required|max:255',
-            'comportamento' => 'required|max:10',
-            'vacinado' => 'required|max:255',
+            'data' => 'required|max:255',
+            'turno' => 'required|max:255'
         ]);
         //dd($validatedData);
             //dd ($pessoa->animais);
         //array_push($pessoa->animais, $validatedData);
-        $animal = new Animal;
+        $consulta = new Consulta;
         
-        //$animal = $validatedData;
-        $animal->pessoa_id = $id;
-        $animal->nome = $request->input('nome');
-        $animal->especie = $request->input('nome');
-        $animal->raca = $request->input('raca');
-        $animal->corDaPelagem = $request->input('corDaPelagem');
-        $animal->idade = $request->input('idade');
-        $animal->porteFisico = $request->input('porteFisico');
-        $animal->comportamento = $request->input('comportamento');
-        $animal->vacinado = $request->input('vacinado');
-        $animal->save();
-        // dd($animal);
-        $pessoa->animais->push($animal);
+        //$consulta = $validatedData;
+        $consulta->pessoa_id = $id;
+        $consulta->data = $request->input('data');
+        $consulta->turno = $request->input('turno');
+        $consulta->save();
+        // dd($consulta);
+        $pessoa->animais->push($consulta);
         //dd ($pessoa->animais);
         $pessoa->save();
         //Pessoa::whereId($pessoa->id)->update($validatedData);
@@ -79,10 +67,10 @@ class AnimalController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Animal  $animal
+     * @param  \App\consulta  $consulta
      * @return \Illuminate\Http\Response
      */
-    public function show(Animal $animal)
+    public function show(Consulta $consulta)
     {
         //
     }
@@ -90,23 +78,23 @@ class AnimalController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Animal  $animal
+     * @param  \App\consulta  $consulta
      * @return \Illuminate\Http\Response
      */
-    public function edit(Animal $animal)
+    public function edit(Consulta $consulta)
     {
-        $animal = Animal::findOrFail($animal->id);
-        return view('animal.edit', compact('animal'));
+        $consulta = consulta::findOrFail($consulta->id);
+        return view('consulta.edit', compact('consulta'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Animal  $animal
+     * @param  \App\consulta  $consulta
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Animal $animal)
+    public function update(Request $request, Consulta $consulta)
     {
         $validatedData = $request->validate([
             'nome' => 'max:255',
@@ -118,20 +106,20 @@ class AnimalController extends Controller
             'comportamento' => 'max:10'    ,
             'vacinado' => 'max:255'
         ]);
-        Animal::whereId($animal->id)->update($validatedData);
-        return redirect(route('animal.index'))->with('success', 'Alumnus is successfully saved');
+        consulta::whereId($consulta->id)->update($validatedData);
+        return redirect(route('consulta.index'))->with('success', 'Alumnus is successfully saved');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Animal  $animal
+     * @param  \App\consulta  $consulta
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Animal $animal)
+    public function destroy(Consulta $consulta)
     {
-        $animal = Animal::findOrFail($animal->id);
-        $animal->delete();
-        return redirect(route('animal.index'))->with('success', 'Animal is successfully deleted');
+        $consulta = consulta::findOrFail($consulta->id);
+        $consulta->delete();
+        return redirect(route('consulta.index'))->with('success', 'consulta is successfully deleted');
     }
 }

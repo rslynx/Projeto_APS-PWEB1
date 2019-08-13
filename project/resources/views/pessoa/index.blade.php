@@ -1,6 +1,6 @@
-@extends('pessoa.layout')
+@extends('layouts.app')
 
-@section('title', 'Pessoa')
+@section('title', 'Pessoas')
 
 @section('content')
 @if(session()->get('success'))
@@ -32,6 +32,7 @@
       <td>{{$pessoa->telefone}}</td>
       <td>{{$pessoa->cep}}</td>
       <td>{{$pessoa->cpf}}</td>
+      <td><a href="{{ route('pessoa.show',$pessoa->id)}}" class="btn btn-primary" role="button">Detalhes</a></td>
       <td><a href="{{ route('pessoa.edit',$pessoa->id)}}" class="btn btn-primary" role="button">Edit</a></td>
       <td>
         <form class="delete" action="{{ route('pessoa.destroy',$pessoa->id)}}" method="POST">

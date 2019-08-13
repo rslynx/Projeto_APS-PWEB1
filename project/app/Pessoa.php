@@ -1,7 +1,6 @@
 <?php
 
 namespace App;
-
 use Illuminate\Database\Eloquent\Model;
 
 class Pessoa extends Model
@@ -13,4 +12,14 @@ class Pessoa extends Model
         'cep',
         'cpf'
     ];
+
+    public function animais()
+    {
+        return $this->hasMany('App\Animal');
+    }
+
+    public function consultas()
+    {
+        return $this->hasMany('App\Consulta');
+    }
 }

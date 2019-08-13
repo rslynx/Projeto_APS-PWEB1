@@ -14,8 +14,9 @@ class AnimalSeeder extends Seeder
     {   
 
         $animal = new Animal;
+        $animal->pessoa_id = '1';
         $animal->nome = 'Taysa';
-        $animal->especie = 'Equino';
+        $animal->especie = 'Felino';
         $animal->raca = 'cachorro';
         $animal->corDaPelagem = 'preta';
         $animal->idade = '24';

@@ -23,6 +23,8 @@ class CreateAnimalsTable extends Migration
             $table->enum('porteFisico', ['peq', 'med' , 'gra']);
             $table->enum('comportamento', ['docil', 'agressivo']);
             $table->enum('vacinado', ['sim', 'nao']);
+            $table->unsignedBigInteger('pessoa_id');
+            $table->foreign('pessoa_id')->references('id')->on('pessoas')->onDelete('cascade');;
             $table->timestamps();
         });
     }

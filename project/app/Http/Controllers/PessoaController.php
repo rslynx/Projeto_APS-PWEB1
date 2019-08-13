@@ -24,22 +24,19 @@ class PessoaController extends Controller
     {
         $validatedData = $request->validate([
             'nome' => 'required|max:255',
-            'especie' => 'required|max:255',
-            'raca' => 'required|max:255',
-            'corDaPelagem' => 'required|max:255',
-            'idade' => 'required|max:255',
-            'porteFisico' => 'required|max:255',
-            'comportamento' => 'required|max:10',
-            'vacinado' => 'required|max:255'
+            'endereco' => 'required|max:255',
+            'telefone' => 'required|max:255',
+            'cep' => 'required|max:255',
+            'cpf' => 'required|max:255',            
         ]);
         // dd($validatedData);
         Pessoa::create($validatedData);
-        return redirect(route('pessoa.index'))->with('success', 'pessoa is successfully saved');
+        return redirect(route('pessoa.index'))->with('success', 'Pessoa is successfully saved');
     }
 
     public function show(Pessoa $pessoa)
     {
-        //
+        return view('pessoa.show', compact('pessoa'));
     }
 
 
@@ -54,22 +51,19 @@ class PessoaController extends Controller
     {
         $validatedData = $request->validate([
             'nome' => 'max:255',
-            'especie' => 'max:255',
-            'raca' => 'max:255',
-            'corDaPelagem' => 'max:255',
-            'idade' => 'max:255',
-            'porteFisico' => 'max:255',
-            'comportamento' => 'max:10'    ,
-            'vacinado' => 'max:255'
+            'endereco' => 'max:255',
+            'telefone' => 'max:255',
+            'cep' => 'max:255',
+            'cpf' => 'max:255'
         ]);
         Pessoa::whereId($pessoa->id)->update($validatedData);
-        return redirect(route('pessoa.index'))->with('success', 'Alumnus is successfully saved');
+        return redirect(route('pessoa.index'))->with('success', 'Pessoa is successfully saved');
     }
 
     public function destroy(Pessoa $pessoa)
     {
         $pessoa = Pessoa::findOrFail($pessoa->id);
         $pessoa->delete();
-        return redirect(route('pessoa.index'))->with('success', 'pessoa is successfully deleted');
+        return redirect(route('pessoa.index'))->with('success', 'Pessoa is successfully deleted');
     }
 }
