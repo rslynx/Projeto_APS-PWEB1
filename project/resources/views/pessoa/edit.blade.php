@@ -1,5 +1,4 @@
-@extends('alumni.layout')
-
+@extends('layouts.app')
 @section('title', 'Edit Pessoa')
 
 @section('content')

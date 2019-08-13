@@ -1,5 +1,4 @@
-@extends('pessoa.layout')
-
+@extends('layouts.app')
 @section('title', 'Cadastrar Pessoa')
 
 @section('content')
@@ -39,7 +38,7 @@
         <label for="cor">Cpf:</label>
         <input type="text" id="cpf" name="cpf" />
       </div>
-      <button type="submit" class="btn btn-primary">Cadastrar Animal</button>
+      <button type="submit" class="btn btn-primary">Cadastrar Pessoa</button>
     </form>
   </div>
 </div>

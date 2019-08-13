@@ -11,8 +11,11 @@
 |
 */
 
+
+Auth::routes();
+
 Route::get('/', function () {
-    return redirect(route('pessoa.index'));;
+    return redirect(route('home'));;
 });
 
 
@@ -22,3 +25,6 @@ Route::resource('pessoa.animal', 'AnimalController');
 Route::resource('pessoa.consulta', 'ConsultaController');
 Route::resource('pessoa', 'PessoaController');
 
+
+
+Route::get('/home', 'HomeController@index')->name('home');

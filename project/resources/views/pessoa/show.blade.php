@@ -1,4 +1,5 @@
-@extends('pessoa.layout')
+@extends('layouts.app')
+
 
 @section('title', 'Pessoa')
 
