@@ -39,7 +39,7 @@
         <label for="cor">Cpf:</label>
         <input type="text" id="cpf" name="cpf" value="{{$pessoa->cpf}}"/>
       </div>
-      <button type="submit" class="btn btn-primary">Cadastrar Animal</button>
+      <button type="submit" class="btn btn-primary">Editar Pessoa</button>
     </form>
   </div>
 </div>
