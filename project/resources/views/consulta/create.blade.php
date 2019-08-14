@@ -1,4 +1,4 @@
-@extends('animal.layout')
+@extends('layouts.app')
 
 @section('title', 'Cadastrar Animal')
 

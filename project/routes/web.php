@@ -19,8 +19,6 @@ Route::get('/', function () {
 });
 
 
-Route::resource('alumni', 'AlumniController');
-//Route::resource('animal', 'AnimalController');
 Route::resource('pessoa.animal', 'AnimalController');
 Route::resource('pessoa.consulta', 'ConsultaController');
 Route::resource('pessoa', 'PessoaController');
